@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <a href="{% url 'tareas' %}"><button type="button">Volver</button></a>
+    <title>Formulario de Tareas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cssForm.css' %}">
+</head>
+<body>
+    <h1>Formulario de Tareas</h1>
+     <form method="post">
+        {% csrf_token %}
+{{form.as_p}}
+
+        <button type="submit">Guardar Tarea</button>
+    </form>
+</body>
+</html>
+

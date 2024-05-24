@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/principal.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+</head>
+<body>
+<div class="contenedor-total">
+<div class="contenedor-superior">
+    <div class="info-usuario">
+        <p class="nombre-usuario">Hola {{ request.user }}</p>
+        <p class="tareas" >Tienes {{ count }} tarea{{ count|pluralize }} incompleta{{ count|pluralize }}</p>
+    </div>
+
+    {% if request.user.is_authenticated %}
+    {% endif %}
+    <div class="botones-superiores" >
+
+        {% if request.user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="Btn" type="submit">
+             <div class="sign"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
+                <div class="text">Salir</div>
+            </button>
+        </form>
+        {% else %}
+        <a href="{% url 'login' %}">Ingresar</a>
+        {% endif %}
+    </div>
+</div>
+<div class="contenedor-inferior">
+    <div class="caja1">
+        <h1 align="center">Lista de Tareas</h1>
+        <br>
+        <br>
+        <br>
+        <form method="get">
+            <input class="input-text" type="text" name="area-buscar" value="{{valor_buscado}}">
+            <input class="input-text" type="submit" name="buscar">
+        </form>
+    </div>
+   <div class="caja2">
+        <div class="crear-tareas">
+            <a href="{% url 'crear-tarea' %}" ><img src="{% static 'img/mas.png' %}" alt="crear nuevas notas" style='width: 20px; height: 20px;'></a>
+        </div>
+        {% if tareas %}
+        <table>
+            <tr>
+                <th class="elemento">Elemento</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for tarea in tareas %}
+            <tr>
+                <td>{{ tarea.titulo }}</td>
+                <td><a href="{% url 'editar-tarea' tarea.id %}"><img src="{% static 'img/editar.png' %}" alt="Editar" style='width: 20px; height: 20px;'></a></td>
+                <td><a href="{% url 'eliminar-tarea' tarea.id %}"><img src="{% static 'img/elminar.png' %}" alt="Eliminar" style='width: 20px; height: 20px;'></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h3 align="center">No hay tareas</h3>
+        {% endif %}
+</div></div></div>
+</body>
+</html>
+

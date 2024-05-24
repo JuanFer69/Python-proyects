@@ -1,0 +1,223 @@
+body {
+    background-image: url("/static/img/Background.jpg");; /* Reemplaza 'ruta/a/tu/imagen.jpg' con la ruta de tu imagen */
+    background-size: cover; /* Escala la imagen para que cubra todo el contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    font-family: "Roboto", sans-serif;
+}
+.nombre-usuario {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -5px;
+}
+.tareas {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -5px;
+}
+.espacio {
+    margin-right: 10px;
+    vertical-align: middle; /* Alinea verticalmente el espacio */
+}
+.contenedor-total {
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 0.75rem;
+    background-color: rgba(17, 24, 39, 1);
+    padding: 2rem;
+    color: rgba(243, 244, 246, 1);
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Estilos para la información del usuario */
+
+
+.nombre-usuario {
+    margin-right: 80px; /* Espacio entre el primer párrafo y el borde derecho del contenedor superior */
+}
+
+
+/* Estilos para el contenedor superior */
+.contenedor-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #172645;
+    padding: 20px;
+    border-radius: 0.75rem;
+    margin-bottom: 20px;
+}
+.contenedor-superior p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.botones-superiores {
+    position: absolute;
+    top: 0;
+    right: 20px;
+
+}
+
+
+
+.contenedor-inferior {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+input[type="text"] {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* Estilos para centrar la barra de búsqueda y el botón de búsqueda en dispositivos con una anchura menor que 423px */
+@media (max-width: 427px) {
+  .input-text,
+  .input-submit {
+    max-width: none;
+    margin: 0 auto;
+    display: block;
+
+  }
+}
+@media (max-width: 814px) and (min-width: 601px) {
+  .input-text,
+  .input-submit {
+    max-width: none;
+    margin: 0 auto;
+    display: block;
+  }
+
+}
+
+.elemento{
+font-size: 20px;
+}
+
+.caja1,
+.caja2 {
+    width: calc(50% - 20px);
+    padding: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+     background-color: #172645;
+     border-radius: 0.75rem;
+}
+
+.caja1 {
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caja1 form {
+    margin-bottom: 20px;
+}
+
+.caja2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+}
+
+.crear-tareas {
+    margin-left: auto;
+}
+
+@media (max-width: 600px) {
+    .caja1,
+    .caja2 {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(255, 65, 65);
+  top: 30px; /* Ajusta la posición vertical */
+  /* Ajusta la posición horizontal */
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px ,2px);
+}

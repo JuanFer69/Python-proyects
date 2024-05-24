@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Logincss.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+</head>
+<body>
+<div class="contenedor-total">
+    <div class="contenedor-superior">
+        <h1>ingresar</h1>
+    </div>
+    <div class="contenedor-inferior">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Ingresar">
+        </form>
+        {% if not request.user.is_authenticated %}
+            <p>No tienes una cuenta? <a href="{% url 'registro' %}">Regístrate</a></p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
+
+
+
